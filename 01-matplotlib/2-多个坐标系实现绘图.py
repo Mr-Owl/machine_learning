@@ -33,15 +33,14 @@ def main():
     axes[0].set_xticklabels(x_ticks_label[::5])
     # 1坐标系添加y刻度
     axes[0].set_yticks(y_ticks[::5])
-    # 1坐标系添加x刻度
+    # 2坐标系添加刻度
     axes[1].set_xticks(x[::5])
-    # 1坐标系修改x带字符串的刻度
     axes[1].set_xticklabels(x_ticks_label[::5])
-    # 1坐标系添加y刻度
     axes[1].set_yticks(y_ticks[::5])
 
-    # # 2.2 添加网格显示
-    # plt.grid(True, linestyle="--", alpha=0.5)
+    # 2.2 添加网格显示
+    axes[0].grid(True, linestyle="--", alpha=0.5)
+    axes[1].grid(True, linestyle="--", alpha=0.5)
     #
     # # 2.3 添加描述信息
     # plt.xlabel("时间")
