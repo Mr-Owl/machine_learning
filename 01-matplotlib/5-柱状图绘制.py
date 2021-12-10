@@ -20,7 +20,7 @@ def main():
     # 1.创建画布
     plt.figure(figsize=(20, 8), dpi=100)
 
-    # 2.绘制柱状图
+    # 2.绘制柱状图 width宽度 color 各个柱的颜色
     plt.bar(x, y, width=0.5, color=['b', 'r', 'g', 'y', 'c', 'm', 'y', 'k', 'c', 'g', 'b'])
 
     # 2.1b修改x轴的刻度显示
