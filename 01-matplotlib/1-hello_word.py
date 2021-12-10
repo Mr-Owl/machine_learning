@@ -25,7 +25,7 @@ def main():
     x_ticks_label = ["11点{}分".format(i) for i in x]
     y_ticks = range(40)
 
-    # 刻度显示
+    # 刻度显示,刻度数据不能直接改为字符串
     plt.xticks(x[::5], x_ticks_label[::5])
     plt.yticks(y_ticks[::5])
 
