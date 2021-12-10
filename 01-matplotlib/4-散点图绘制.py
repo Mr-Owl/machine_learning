@@ -6,6 +6,8 @@ from pylab import mpl
 mpl.rcParams["font.sans-serif"] = ["SimHei"]
 # 设置正常显示符号
 mpl.rcParams["axes.unicode_minus"] = False
+
+
 def main():
     # 0.准备数据
     x = [225.98, 247.07, 253.14, 457.85, 241.58, 301.01, 20.67, 288.64,
@@ -23,6 +25,7 @@ def main():
 
     # 3.显示图像
     plt.show()
+
 
 if __name__ == '__main__':
     main()
