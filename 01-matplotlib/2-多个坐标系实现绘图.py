@@ -51,8 +51,9 @@ def main():
     axes[1].set_title("中午11点--12点某城市温度变化图", fontsize=20)
 
     #
-    # # 显示图例  loc显示位置 best自动设置位置
-    # plt.legend(loc="best")
+    # 显示图例  loc显示位置 best自动设置位置
+    axes[0].legend(loc="best")
+    axes[1].legend(loc="best")
     # # 2.4 图像保存，在show之前保存
     # show之后会释放数据，就会变成一张空白图
     # plt.savefig("./test.png")
