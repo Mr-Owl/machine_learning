@@ -22,15 +22,24 @@ def main():
     axes[0].plot(x, y_shanghai, label="上海")
     axes[1].plot(x, y_beijing, color="r", linestyle="--", label="北京")
 
-    # # 2.1 添加x,y轴刻度
-    # # 构造x,y轴刻度标签
-    # x_ticks_label = ["11点{}分".format(i) for i in x]
-    # y_ticks = range(40)
+    # 2.1 添加x,y轴刻度
+    # 构造x,y轴刻度标签
+    x_ticks_label = ["11点{}分".format(i) for i in x]
+    y_ticks = range(40)
     #
-    # # 刻度显示,刻度数据不能直接改为字符串
-    # plt.xticks(x[::5], x_ticks_label[::5])
-    # plt.yticks(y_ticks[::5])
-    #
+    # 1坐标系添加x刻度
+    axes[0].set_xticks(x[::5])
+    # 1坐标系修改x带字符串的刻度
+    axes[0].set_xticklabels(x_ticks_label[::5])
+    # 1坐标系添加y刻度
+    axes[0].set_yticks(y_ticks[::5])
+    # 1坐标系添加x刻度
+    axes[1].set_xticks(x[::5])
+    # 1坐标系修改x带字符串的刻度
+    axes[1].set_xticklabels(x_ticks_label[::5])
+    # 1坐标系添加y刻度
+    axes[1].set_yticks(y_ticks[::5])
+
     # # 2.2 添加网格显示
     # plt.grid(True, linestyle="--", alpha=0.5)
     #
