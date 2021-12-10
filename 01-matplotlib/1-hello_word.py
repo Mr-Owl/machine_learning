@@ -12,6 +12,7 @@ mpl.rcParams["axes.unicode_minus"] = False
 def main():
     # 0.准备数据
     x = range(60)
+    # uniform 生成一个随机实数
     y_shanghai = [random.uniform(15, 18) for i in x]
 
     # 1.创建画布
