@@ -42,10 +42,14 @@ def main():
     axes[0].grid(True, linestyle="--", alpha=0.5)
     axes[1].grid(True, linestyle="--", alpha=0.5)
     #
-    # # 2.3 添加描述信息
-    # plt.xlabel("时间")
-    # plt.ylabel("温度")
-    # plt.title("中午11点--12点某城市温度变化图", fontsize=20)
+    # 2.3 添加多坐标系描述信息
+    axes[0].set_xlabel("时间")
+    axes[0].set_ylabel("温度")
+    axes[0].set_title("中午11点--12点某城市温度变化图", fontsize=20)
+    axes[1].set_xlabel("时间")
+    axes[1].set_ylabel("温度")
+    axes[1].set_title("中午11点--12点某城市温度变化图", fontsize=20)
+
     #
     # # 显示图例  loc显示位置 best自动设置位置
     # plt.legend(loc="best")
