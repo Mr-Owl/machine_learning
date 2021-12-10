@@ -3,6 +3,7 @@ import random
 from pylab import mpl
 
 # 设置显示中文字体
+# 字体需要额外下载安装，另外配置后需要去家目录cache清除缓存
 mpl.rcParams["font.sans-serif"] = ["SimHei"]
 # 设置正常显示符号
 mpl.rcParams["axes.unicode_minus"] = False
