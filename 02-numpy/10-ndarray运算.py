@@ -30,9 +30,9 @@ if __name__ == '__main__':
     print(np.where(np.logical_not(score[0:2, :] > 60, score[0:2, :]<90), 1, 0))
     print("---------------------")
     # 4 统计指标
-    # 4.1 np.min/max/median(a. axis) 最小/最大/中位数
+    # 4.1 np.min/max/median(a. axis) 最小/最大/中位数(从小到大取中间的数，或中间两个数的平均值)
     # a代表数组，axis=0/1 代表行/列操作
-    # axis=n，可以理解为多维数组有多个轴，根据数据在该轴上的投影进行操作
+    # axis=n，可以理解为多维数组有多个轴，根据数据在第n轴上的投影进行操作
     # 不传axis寻找所有中的一个，传axis值，按要求返回每行或每列中符合要求的
     temp = score[:4, :]
     print(temp)
