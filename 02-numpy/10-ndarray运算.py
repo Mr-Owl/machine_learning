@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # 3.2 复合逻辑运算np.where条件部分可以用np.logical_and/or/not 开搭配使用,
     print(np.where(np.logical_and(score[0:2, :] > 60, score[0:2, :] < 90), 1, 0))
     print(np.where(np.logical_or(score[0:2, :] < 60, score[0:2, :] > 90), 1, 0))
-    print(np.where(np.logical_not(score[0:2, :] > 60, score[0:2, :]<90), 1, 0))
+    print(np.where(np.logical_not(score[0:2, :] > 60, score[0:2, :] < 90), 1, 0))
     print("---------------------")
     # 4 统计指标
     # 4.1 np.min/max/median(a. axis) 最小/最大/中位数(从小到大取中间的数，或中间两个数的平均值)
