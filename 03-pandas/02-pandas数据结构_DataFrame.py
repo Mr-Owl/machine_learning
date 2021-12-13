@@ -55,4 +55,3 @@ if __name__ == '__main__':
     print(df.set_index("year"))
     # 设置多个索引，这样DataFrame就变成了一个具有MultiIndex的DataFrame
     print(df.set_index(["year", "month"]))
-
