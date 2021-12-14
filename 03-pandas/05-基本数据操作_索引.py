@@ -25,7 +25,7 @@ def main():
     print(data.ix[0:4, ["open", "close"]])
     # 上一行jupyter 会警告提示 推荐使用loc和iloc来获取
     print(data.loc[data.index[0:4], ["open", "close"]])
-    print(data.columns.get_indexer(["open", "close"]))  # 参数为列表,获取索引值对应的下标,
+    print(data.columns.get_indexer(["open", "close"]))  # 参数为列表,获取索引值对应的下标
     print(data.iloc[0:4, data.columns.get_indexer(["open", "close"])])
 
 
