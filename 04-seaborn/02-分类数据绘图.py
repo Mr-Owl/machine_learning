@@ -68,5 +68,5 @@ if __name__ == '__main__':
     # 它只会绘制点估计和置信区间。
     # 通过 pointplot()函数绘制点图的示例如下。
     # sns.pointplot(x="day", y="total_bill", data=tips)
-    sns.pointplot("day", "total_bill", data=tips)  并使用误差条来表示置信区间。
+    sns.pointplot("day", "total_bill", data=tips)  # 并使用误差条来表示置信区间。和直方图一样,把直方图顶点作为结点
     plt.show()
