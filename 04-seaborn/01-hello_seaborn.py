@@ -74,3 +74,4 @@ if __name__ == '__main__':
     dataset = sns.load_dataset("iris")
     print(dataset.head())
     sns.pairplot(dataset)
+    plt.show()
