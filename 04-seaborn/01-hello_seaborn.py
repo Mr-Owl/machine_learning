@@ -69,6 +69,8 @@ if __name__ == '__main__':
     # 接下来，通过sns.pairplot()
     # 函数绘制数据集变量间关系的图形，示例代码如下
     # 本次使用seaborn自带的iris鸢尾花数据集
-    # dataset = sns.load_dataset("iris")
-    # print(dataset.head())
-    # sns.pairplot(dataset)
+    # 该数据集为seaborn内置的数据集,他会先在主目录seaborn-data去找,如果没有,就会去进行下载,可以
+    # 先去https://github.com/mwaskom/seaborn-data下载之后放到seaborn-data中,防止该行请求报错
+    dataset = sns.load_dataset("iris")
+    print(dataset.head())
+    sns.pairplot(dataset)
