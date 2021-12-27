@@ -104,3 +104,51 @@ if __name__ == '__main__':
     print(df_all)
     df_merge = pd.merge(new_df, df_all)
     print(df_merge)
+    # 图形展示
+    num = df_merge["数量"]
+    price = df_merge["每平方米租金(元)"]
+    lx = df_merge["区域"]
+    # 长度
+    l = [i for i in range(13)]
+    # 创建画布
+    fig = plt.figure(figsize=(10, 8), dpi=100)
+    # 显示折线图
+    ax1 = fig.add_subplot(111)  # 1行1列第一个
+    ax1.plot(l, price, "or-", label="价格")
+    for i, (_x, _y) in enumerate(zip(l, price)):
+        plt.text(_x + 0.2, _y, price[i])
+    ax1.set_ylim([0, 160])
+    ax1.set_ylabel("价格")
+    plt.legend(loc="upper right")
+    # 显示条形图
+    ax2 = ax1.twinx()
+    plt.bar(l, num, label="数量", alpha=0.2, color="green")
+    ax2.set_ylabel("数量")
+    plt.legend(loc="upper left")
+    plt.xticks(l, lx)
+    for i, (_x, _y) in enumerate(zip(l, num)):
+        plt.text(_x, _y, i)
+    plt.show()
+    # 3 面积基本分析
+    # 查看房屋的最大面积和最小面积
+    print('房屋最大面积是%d平米' % (file_data['面积(㎡)'].max()))
+    print('房屋最小面积是%d平米' % (file_data['面积(㎡)'].min()))
+
+    # 查看房租的最高值和最小值
+    print('房租最高价格为每月%d元' % (file_data['价格(元/月)'].max()))
+    print('房屋最低价格为每月%d元' % (file_data['价格(元/月)'].min()))
+
+    # 面积划分
+    area_divide = [1, 30, 50, 70, 90, 120, 140, 160, 1200]
+    area_cut = pd.cut(list(file_data["面积(㎡)"]), area_divide)
+    area_cut_num = area_cut.describe()
+    print(area_cut_num)
+    # 图形可视化
+    area_per = (area_cut_num["freqs"].values) * 100
+    labels = ['30平米以下', '30-50平米', '50-70平米', '70-90平米',
+              '90-120平米', '120-140平米', '140-160平米', '160平米以上']
+    plt.figure(figsize=(20, 8), dpi=100)
+    # plt.axes(aspect=1)  # 正圆
+    plt.pie(x=area_per, labels=labels, autopct="%.2f%%")
+    plt.legend()
+    plt.show()
