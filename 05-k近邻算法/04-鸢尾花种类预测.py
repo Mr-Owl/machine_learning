@@ -35,9 +35,10 @@ def main():
     # 3.1 实例化对象转换器对象
     transfer = StandardScaler()
     # 3.2 转换
-    x_train = transfer.transform(x_train)
+    x_train = transfer.fit_transform(x_train)
     # x_test = transfer.fit_transform(x_test)
-    #  使用训练集中的标准差进行表转化(因为测试集和训练集采用的是同一个数据集,正太分布一致,所以标准差相同)
+    # transform使用训练集中的标准差进行表转化(因为测试集和训练集采用的是同一个数据集,正太分布一致,所以标准差相同)
+    # 使用transform前需使用fit_transform 有一个已经计算好的标准差
     x_test = transfer.transform(x_test)
     # 4 机器学习-knn
     # 4.1 实例化估计器
