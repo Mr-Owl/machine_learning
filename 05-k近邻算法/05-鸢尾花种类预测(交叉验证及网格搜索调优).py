@@ -32,9 +32,10 @@ sklearn.model_selection.GridSearchCV(estimator, param_grid=None,cv=None)
     fit：输入训练数据
     score：准确率
     结果分析：
-        bestscore__:在交叉验证中验证的最好结果
-        bestestimator：最好的参数模型
-        cvresults:每次交叉验证后的验证集准确率结果和训练集准确率结果
+        best_score_:在交叉验证中验证的最好结果
+        best_estimator_：最好的参数模型
+        best_params_: 最好模型参数
+        cv_results_:每次交叉验证后的验证集准确率结果和训练集准确率结果
 """
 
 
@@ -47,9 +48,8 @@ def main():
     # 3.1 实例化对象转换器对象
     transfer = StandardScaler()
     # 3.2 转换
-    x_train = transfer.transform(x_train)
+    x_train = transfer.fit_transform(x_train)
     # x_test = transfer.fit_transform(x_test)
-    #  使用训练集中的标准差进行表转化(因为测试集和训练集采用的是同一个数据集,正太分布一致,所以标准差相同)
     x_test = transfer.transform(x_test)
     # 4 机器学习-knn
     # 4.1 实例化估计器
@@ -66,6 +66,11 @@ def main():
     print("预测值和真实值的对比时是:\n", y_pre == y_test)
     score = estimator.score(x_test, y_test)
     print("准确率为:", score)
+    # 5.3 查看交叉验证,网格搜索的一些属性
+    print("在交叉验证中,得到的最好结果是:\n", estimator.best_score_)
+    print("在交叉验证中,得到的最好参数模型是:\n", estimator.best_estimator_)
+    print("在交叉验证中,得到的最好参数是:\n", estimator.best_params_)
+    print("在交叉验证中,得到的模型结果是:\n", estimator.cv_results_)
 
 
 if __name__ == '__main__':
