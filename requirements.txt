@@ -4,3 +4,4 @@ pandas==0.20.3
 tables==3.4.2
 seaborn==0.11.2
 scikit-learn==1.0.2
+joblib==1.1.0
