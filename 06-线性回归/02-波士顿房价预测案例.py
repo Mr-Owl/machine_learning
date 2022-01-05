@@ -144,7 +144,6 @@ def linear_model3():
     print("均方误差：\n", ret)
 
 
-
 if __name__ == '__main__':
     linear_model1()
     print("--------------------")

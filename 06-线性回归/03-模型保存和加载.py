@@ -15,7 +15,6 @@ from sklearn.metrics import mean_squared_error
 import joblib
 
 
-
 def dump_load():
     """
     模型保存和加载
@@ -50,7 +49,6 @@ def dump_load():
     # 5.2 均方误差
     ret = mean_squared_error(y_test, y_pre)
     print("均方误差：\n", ret)
-
 
 
 if __name__ == '__main__':

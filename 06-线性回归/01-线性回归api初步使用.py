@@ -1,5 +1,6 @@
 from sklearn.linear_model import LinearRegression
 
+
 def main():
     # 1 获取数据
     x = [[80, 86],
@@ -22,6 +23,7 @@ def main():
     print("输出预测结果:\n", estimator.predict([[100, 80]]))
 
     # 5 模型评估
+
 
 if __name__ == '__main__':
     main()
