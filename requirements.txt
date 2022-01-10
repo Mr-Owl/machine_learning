@@ -5,3 +5,4 @@ tables==3.4.2
 seaborn==0.11.2
 scikit-learn==1.0.2
 joblib==1.1.0
+imbalanced-learn==0.8.1
