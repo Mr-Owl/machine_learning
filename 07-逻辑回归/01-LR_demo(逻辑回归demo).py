@@ -13,7 +13,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, roc_auc_score
 
 # 关闭ssl验证
 # import ssl
@@ -82,9 +82,40 @@ def main():
     print("预测值:\n", y_pre)
     print("真实值：\n", y_test)
     print("----------------------------------")
-    # 5.3 精确率\召回率指标评价
+    # 5.3 精确率\召回率\F1指标评价(其中打印出的support列指的是该例的真实数量)
+    """
+    sklearn.metrics.classification_report(y_true, y_pred, labels=[], target_names=None )
+    y_true：真实目标值
+    y_pred：估计器预测目标值
+    labels:指定类别对应的数字
+    target_names：目标类别名称
+    return：每个类别精确率与召回率
+    """
     ret = classification_report(y_test, y_pre, labels=(2, 4), target_names=("良性", "恶性"))
     print(ret)
+    print("----------------------------------")
+    # 5.4 auc指标计算
+    """
+    roc曲线和auc指标
+    roc曲线
+    通过tpr和fpr来进行图形绘制，然后绘制之后，行成一个指标auc
+    auc
+    越接近1，效果越好
+    越接近0，效果越差
+    越接近0.5，效果就是胡说
+    注意：
+    这个指标主要用于评价不平衡的二分类问题
+    
+    api:
+    from sklearn.metrics import roc_auc_score
+    sklearn.metrics.roc_auc_score(y_true, y_score)
+    计算ROC曲线面积，即AUC值
+    y_true：每个样本的真实类别，必须为0(反例),1(正例)标记
+    y_score：预测得分，可以是正类的估计概率、置信值或者分类器方法的返回值
+    """
+    # auc指标api接口分类只接受0，1
+    y_test = np.where(y_test > 3, 1, 0)  # 将4改为1，2改为0
+    print(roc_auc_score(y_test, y_pre))
     print("----------------------------------")
 
 
