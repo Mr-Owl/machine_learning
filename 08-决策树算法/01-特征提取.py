@@ -1,4 +1,5 @@
 from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
 
 """
 特征提取
@@ -15,6 +16,8 @@ sklearn.feature_extraction
 
 
 """
+
+
 def dict_demo():
     """
     字典特征提取
@@ -42,5 +45,37 @@ def dict_demo():
     print(transfer.get_feature_names())
 
 
+def english_count_demo():
+    """
+    文本特征提取-英文
+    作用：对文本数据进行特征值化
+    api:
+    sklearn.feature_extraction.text.CountVectorizer(stop_words=[])
+    返回词频sparse矩阵
+    不统计标点符号和单个字母
+    stop_words 设置不参考的词语
+    CountVectorizer.fit_transform(X)
+    X:文本或者包含文本字符串的可迭代对象
+    返回值:返回sparse矩阵
+    CountVectorizer.get_feature_names() 返回值:单词列表
+    :return:
+    """
+    # 获取数据
+    data = ["life is short,i like python",
+            "life is too long,i dislike python"]
+    # 文本特征转换
+    # transfer = CountVectorizer()  # 注意：没有sparse这个参数
+    transfer = CountVectorizer(stop_words=["dislike"])
+    new_data = transfer.fit_transform(data)
+
+    # 查看特征名字
+    names = transfer.get_feature_names()
+
+    print("特征名字是：", names)
+    print(new_data)
+    print(new_data.toarray())  # 转换成one-hot矩阵
+
+
 if __name__ == '__main__':
-    dict_demo()
+    # dict_demo()
+    english_count_demo()
