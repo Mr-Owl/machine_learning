@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, export_graphviz
 
 # import ssl
 # ssl._create_default_https_context = ssl._create_unverified_context  防止ssl验证报错
@@ -23,6 +23,15 @@ max_depth决策树最大深度
 
 random_state
 随机数种子
+
+决策树可视化api,:
+sklearn.tree.export_graphviz() 该函数能够导出DOT格式
+tree.export_graphviz(estimator,out_file='tree.dot’,feature_names=["",""])
+
+决策树可视化dot转换图形：
+http://webgraphviz.com/
+
+
 """
 
 
@@ -64,6 +73,9 @@ def main():
     print(y_pre)
     ret = estimator.score(x_test, y_test)
     print(ret)
+    export_graphviz(estimator, out_file="./data/tree.dot",
+                    feature_names=transfer.get_feature_names())
+
 
 if __name__ == '__main__':
     main()
