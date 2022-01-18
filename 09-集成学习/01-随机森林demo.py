@@ -79,6 +79,9 @@ def main():
     # 5 模模型评估
     gc.fit(x_train, y_train)
     print("随机森林预测结果是：\n", gc.score(x_test, y_test))
+    print("最佳参数：\n", gc.best_params_)
+    print("最高准确率：\n", gc.best_score_)
+    print("交叉验证，网格搜索过程：\n", gc.cv_results_)
 
 
 if __name__ == '__main__':
